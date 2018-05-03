@@ -1,0 +1,1 @@
+An Angular 2 application with Redux pattern, using rxjs, @ngrx/effects, and @ngrx/store. It is a small application that serves as an illustration for an article I'm writing.
