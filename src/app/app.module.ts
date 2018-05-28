@@ -6,6 +6,7 @@ import {MatButtonModule} from '@angular/material';
 import { StoreModule } from '@ngrx/store';
 
 import { CatAlarmModeEffect } from './CatAlarmModeEffect';
+import { alarmModeReducer } from './CatAlarmReducers';
 
 import { AppComponent } from './app.component';
 
@@ -16,7 +17,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     StoreModule.forRoot({
-      //currentCities: citiesReducer
+      currentWakeupMode: alarmModeReducer
   }),
     BrowserModule,
     MatButtonModule,
