@@ -1,1 +1,2 @@
-An Angular 2 application with Redux pattern, using rxjs, @ngrx/effects, and @ngrx/store. It is a small application that serves as an illustration for an article I'm writing.
+A small Angular 2 application that serves as an illustration for my <a href="http://sf.geekitude.com/content/angular-redux-store-and-effects-introduction">article on Angular with Redux pattern, rxjs, @ngrx/effects, and @ngrx/store</a>.
+
