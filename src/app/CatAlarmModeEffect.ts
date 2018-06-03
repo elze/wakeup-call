@@ -8,6 +8,8 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
 
 import { GetDefaultAlarmModeAction } from './CatAlarmActions';
+//import { empty } from 'rxjs/observable/empty';
+import 'rxjs/add/observable/empty';
 
 @Injectable()
 export class CatAlarmModeEffect {
@@ -26,6 +28,8 @@ export class CatAlarmModeEffect {
         // If successful, dispatch success action with result
         .map(res => ({ type: 'GET_DEFAULT_ALARM_MODE_SUCCESS', payload: res }))
         // If request fails, dispatch failed action
-        .catch(() => Observable.of({ type: 'GET_DEFAULT_ALARM_MODE_FAILED' }))
+        .catch((e) => 
+         Observable.of({ type: 'GET_DEFAULT_ALARM_MODE_FAILED', payload: e })
+        )
       );
 }

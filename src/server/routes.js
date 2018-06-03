@@ -11,6 +11,9 @@ const wakeupModes = [
 router.get('/wakeupMode/:id', (req, res) => {
     const ourId = req.params["id"];
     var elem = wakeupModes.find( x => x.id == ourId);
+    if (!elem) {
+        res.status(404).send(`The cat doesn't know what ${ourId} means. The cat can only count to ${wakeupModes.length}.`)
+    }
     res.send(200, elem);
    });
 
