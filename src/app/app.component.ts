@@ -22,14 +22,13 @@ interface WakeupModeState {
 
 export class AppComponent {
   title = 'Cat Alarm';
-  wakeupMode: WakeupMode;
+  wakeupMode$: Observable<WakeupMode>;
   effectError: EffectError;
 
   constructor(private wakeupModeStore: Store<WakeupModeState>,
-    public snackBar: MatSnackBar) {    
-    wakeupModeStore.select('currentWakeupMode').subscribe(wMode => {
-      this.wakeupMode = wMode;
-    });
+    public snackBar: MatSnackBar) {  
+
+   this.wakeupMode$ = wakeupModeStore.select('currentWakeupMode');
 
     wakeupModeStore.select('currentError').subscribe(eError => {
       this.effectError = eError;
@@ -39,12 +38,10 @@ export class AppComponent {
         });
       }
       
-    });
-    
+    });    
 	}
 
   ngOnInit() {
-    // Change id to anything between 1 and 4 to stop seeing the error snackbar
-    this.wakeupModeStore.dispatch({ type: GET_DEFAULT_ALARM_MODE, payload: { id: 5 } });
+    this.wakeupModeStore.dispatch({ type: GET_DEFAULT_ALARM_MODE, payload: { id: 3 } });
    }    
 }
